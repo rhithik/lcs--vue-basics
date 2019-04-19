@@ -6,13 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>RabbitWerks Vue Basics</title>
   <link rel="stylesheet" href="./assets/main.css">
+  <script src="./vue.js"></script>
+
 </head>
 <body>
-  <div class="app--container--shell flexbox-space-center flexdir-col">
+  <div id="app" class="app--container--shell flexbox-space-center flexdir-col">
     <img src="./assets/Vue.js_Logo_2.svg" class="logo" alt="vue logo">
     <h1 class="app--title">
-      Intro to Vue.js
+      {{ fullName }}
     </h1>
   </div>
+
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      title: 'Intro to Vue',
+      name: {
+        first: 'Sean',
+        last: 'RabbitWerks',
+        fullName: 'Sean RabbitWerks'
+      }
+    },
+    computed: {
+      fullName() {
+        return `${ this.name.first.toUpperCase() } ${ this.name.last }`
+      }
+    },
+
+  })
+</script>
 </body>
 </html>
