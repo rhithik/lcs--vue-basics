@@ -1,0 +1,28 @@
+@import './flexbox-util.css';
+
+@import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,600,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.app--container--shell {
+  height: 100%;
+}
+.app--title {
+  font-size: 500%;
+}
+
+.logo {
+  width: 20%;
+  margin-bottom: 2rem;
+}
