@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/main.css">
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="app" class="app--container--shell flexbox-space-center flexdir-col">
+    <img src="./assets/Vue.js_Logo_2.svg" class="logo" alt="vue logo">
+    <h1 class="app--title">
+      {{ fullName }}
+    </h1>
+    <button v-on:click="birthday">Birthday</button>
+
+
+  </div>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      title: 'Intro to Vue',
+      user: {
+        first: 'Sean',
+        last: 'RabbitWerks',
+        age: 27,
+        favoriteWords: ['javascript', 'vue', 'neat', 'awesome']
+      },
+      userInput: '',
+      remoteData: [],
+
+    },
+    computed: {
+      fullName() {
+        return `${ this.user.first } ${ this.user.last }`
+      },
+      numberOfFavoriteWords_Computed() {
+        console.log('computed: ', this.user.favoriteWords.length);
+        return this.user.favoriteWords.length;
+      }
+    },
+    watch: {
+      favoriteWords(newValue, oldValue) {
+        console.log('newValue: ', newValue);
+        console.log('oldValue: ', oldValue);
+        console.log('watcher: ', this.user.favoriteWords.length);
+        return this.user.favoriteWords.length;
+      },
+      userInput() {
+        const url = `https://www.google.com/search?q=${userInput}`;
+        fetch(url)
+          .then(response => response.json())
+          .then()
+      }
+    },
+    methods: {
+
+    }
+
+  })
+</script>
+</body>
+</html>
