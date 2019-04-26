@@ -11,11 +11,22 @@
 <body>
   <div id="app" class="app--container--shell flexbox-space-center flexdir-col">
     <img src="./assets/Vue.js_Logo_2.svg" class="logo" alt="vue logo">
-    <h1 class="app--title">
-      {{ fullName }}
+    <h1 v-show="0 || 1">
+      {{ fullName }} - {{ user.age }}
     </h1>
     <button v-on:click="birthday">Birthday</button>
+    <br><br>
+    <h1 class="header" v-html="url"></h1>
+    <br><br>
+    <h1 v-if="!isNewUser && isAdmin">Welcome Back, Boss</h1>
+    <h1 v-else-if="!isNewUser && !isAdmin">Welcome Back, User</h1>
+    <h1 v-else>Welcome New User</h1>
 
+    <ul class="friends">
+      <li v-for="(friend, index) in friends">
+        <span>{{ index }}</span> - <span>{{ friend.name }}</span>
+      </li>
+    </ul>
 
   </div>
 
@@ -24,12 +35,26 @@
     el: '#app',
     data: {
       title: 'Intro to Vue',
+      url: '<a href="https://vuejs.org">Click to visit Vue!</a>',
       user: {
         first: 'Sean',
         last: 'RabbitWerks',
         age: 27,
-        favoriteWords: ['javascript', 'vue', 'neat', 'awesome']
+        favoriteWords: ['javascript', 'vue', 'neat', 'awesome'],
       },
+      isNewUser: true,
+      isAdmin: false,
+      friends: [
+        {
+          name: 'joshua',
+        },
+        {
+          name: 'mathew',
+        },
+        {
+          name: 'saahti',
+        },
+      ]
 
     },
     computed: {
@@ -45,11 +70,12 @@
       title: function(newValue, oldValue) {
         console.log('New Value: ', newValue);
         console.log('Old Value: ', oldValue);
+
       },
       user: {
         deep: true,
-        handler() {
-          
+        handler(newValue) {
+          console.log(newValue)
         }
       }
     },

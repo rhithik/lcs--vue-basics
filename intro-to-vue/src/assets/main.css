@@ -26,3 +26,9 @@ html, body {
   width: 20%;
   margin-bottom: 2rem;
 }
+
+.friends {
+  background-color: #cfcfcf;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+}
