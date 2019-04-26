@@ -30,35 +30,34 @@
         age: 27,
         favoriteWords: ['javascript', 'vue', 'neat', 'awesome']
       },
-      userInput: '',
-      remoteData: [],
 
     },
     computed: {
       fullName() {
         return `${ this.user.first } ${ this.user.last }`
       },
-      numberOfFavoriteWords_Computed() {
+      numberOfFavoriteWords() {
         console.log('computed: ', this.user.favoriteWords.length);
         return this.user.favoriteWords.length;
       }
     },
     watch: {
-      favoriteWords(newValue, oldValue) {
-        console.log('newValue: ', newValue);
-        console.log('oldValue: ', oldValue);
-        console.log('watcher: ', this.user.favoriteWords.length);
-        return this.user.favoriteWords.length;
+      title: function(newValue, oldValue) {
+        console.log('New Value: ', newValue);
+        console.log('Old Value: ', oldValue);
       },
-      userInput() {
-        const url = `https://www.google.com/search?q=${userInput}`;
-        fetch(url)
-          .then(response => response.json())
-          .then()
+      user: {
+        deep: true,
+        handler() {
+          
+        }
       }
     },
     methods: {
-
+      birthday() {
+        this.user.age++
+        console.log(this.user.age)
+      }
     }
 
   })

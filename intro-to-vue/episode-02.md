@@ -74,6 +74,10 @@
   - Watchers are best used for performing **Ascynronous** tasks such as an API Call, or loading a large sataset into the vue instance.
   - Not recommended for most cases because the watch functions always run on any change or render.
   - Watchers are not optimized and are not very performant for handling computational tasks.
+  - Setting up a watcher on a data property that is an object requires a bit more set up.
+    - We need to set the watcher as `deep:`**`true`** so that Vue knows to 'deep watch' that property.
+    - If any of the nested properties change, it will trigger the watch function.
+    - This will also require a `handler()` function where we sit the function body.
 
 ---
 
@@ -337,14 +341,20 @@ const app = new Vue({
 
 ### **Events and Inputs** [next week]
 
-- **`v-on`** -
-- **`v-model`** -
+- **`v-on`**
+- **`v-model`**
 
 ---
 
-## **Vue Devtools**
-
+## **Vue.js Developer Tools**
+> **[Vue Devtools - Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en)**
 A Vue tailored version of the chrome devtools for debugging and developing Vue applications.
 
 - Shows your app structure and design with a components and elements tree, much like the html inspector.
-- Shows the details of a selected Vue Instance
+- Shows the details of a selected Vue Instance.
+- Displays Vuex state management and app state
+  - Can rewind and commit each state change to the DOM
+- Event tracker for viewing event handler actions
+- Shows application routes and browse mode
+- Summarizes appliction performance
+- Settings tabs for further customization
