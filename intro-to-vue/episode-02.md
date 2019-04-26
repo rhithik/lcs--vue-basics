@@ -49,7 +49,7 @@
 
 ## **Methods**
 
-> **[Methods in Vue.js](anotherlink.soon)**
+> **[Vue.js Methods API Reference](https://vuejs.org/v2/api/#methods)**
 
 - Functions that we define on our Vue instance to be used anywhere throughout the instance.
   - these Fn's run every time the instance has a re-render, unless otherwise specified.
@@ -60,7 +60,7 @@
 
 ## **Watchers**
 
-> **[Watchers Explained...?](link.soon)**
+> **[Watchers Explained...?](https://flaviocopes.com/vue-watchers/)**
 
 - Watch functions need to be named the name of the property they are _watching_
   - i.e. `data.name` watcher would need to be called `name(){...}`
