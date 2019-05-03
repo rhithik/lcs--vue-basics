@@ -10,27 +10,55 @@
 </head>
 <body>
   <div id="app" class="app--container--shell flexbox-space-center flexdir-col">
+    <img src="./assets/Vue.js_Logo_2.svg" class="logo" alt="vue logo"
+    v-on:mousemove="logPosition($event)">
 
+    <button v-on:click="counterPlusOne">Plus One!</button>
+    <span>{{ counter }}</span>
+
+    <button @click="runLog($event)">Run Me!</button>
+    
+    <input type="text" v-model="name" value="hello world">
+
+    <input type="color" v-model="color">
+
+    <select v-model="selectedColor">
+      <option v-for="color in colors" :value="color"> {{ color }} </option>
+    </select>
+    
   </div>
 
 <script>
   const app = new Vue({
     el: '#app',
     data: {
-      name: 'sean',
+      name: '',
       color: '#ffffff',
-      tel: 3035551234,
-
+      tel: 0,
+      counter: 0,
+      colors: ['black', 'red', 'green', 'yellow'],
+      selectedColor: 'green',
     },
     methods: {
+      counterPlusOne() {
+        this.counter++
+      },
       logPosition($event) {
         console.log('X:', $event.clientX, 'Y:', $event.clientY)
       },
-      runLog($event, name) {
-        console.log($event)
-        console.log(name)
+      runLog(event) {
+        console.log(event)
       }
-    }
+    },
+    created() {
+      console.log('Vue instance has been created')
+    },
+    mounted() {
+      console.log('Vue instance has been mounted')
+    },
+    beforeDestroy() {
+      console.log('DESTROYED!')
+    },
   })
 </script>
 </body>
