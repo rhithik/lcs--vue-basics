@@ -187,4 +187,31 @@ Inspired by AngularJS, **`v-model`** is Vue's directive for **TWO WAY DATA BINDI
 
 ### `V-Model Modifiers`
 
-- Much like `v-on`, we have a couple
+- Much like `v-on`, we have a couple on **modifiers** that we can chain onto our directive to help with processsing the inputs.
+  - **`.lazy`** - using this will force Vue to listen to the `change` event versus the `input` event. This means it will only update the data property once the user input has ended.
+
+## **Lifecycle Hooks**
+
+> **[Vue.js Lifecycle Hooks Guide](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)**  
+> **[Vue.js Lifecycle Hooks API Reference](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)**  
+> **[Vue.js Lifecycle Hooks Diagram](https://vuejs.org/images/lifecycle.png)**
+
+Lifecycle hooks are pre-defined methods that don't have any functionality to them, per se. They are essenetially functions that we can hook into at various points throughout the Vue instance's lifecycle.
+
+- These functions don't have any logic on their own. _empty functions_
+- They give us a place to run functions, make requests and more.
+- There are **lifecycle hooks** throughout the entire lifecycle of a Vue instance.
+
+| Lifecycle Hook | Called At |
+|----------------|--------------|
+| `beforeCreate()` | Immediately after the Instance has been initialized |
+| `created()` | Immediately after the Instance has been created |
+| `beforeMount()` | Right before the mounting begins, before calling `render` |
+| `mounted()` | Right after the instance is mounted in at the entry point |
+| `beforeUpdate()` | When data changes but before the DOM has been updated |
+| `updated()` | Right after the DOM has been updated from a data change |
+| `beforeDestroy()` | Right before the Vue instance is destroyed, still functional |
+| `destroyed()` | Once the Vue instance has been completely disassembled |
+| **Keep Alive Lifecycle Hooks** | _for use with `keep-alive` wrapper component_ |
+| `deactivated()` | When the instance is deactivated but not destroyed |
+| `activated()` | When the instance is activated but not created |
