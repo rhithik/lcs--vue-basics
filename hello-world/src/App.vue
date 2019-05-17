@@ -1,7 +1,12 @@
 <template>
   <div id="app" class="hello" v-if="1">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld :msg="msg"/>
+    <HelloWorld 
+      :msg="msg"
+      :name="name"
+      :age="age"
+      hardcoded="this is a hardcoded string"
+    />
   </div>
   <div class="secondary" v-else>SHOWN UP!</div>
 </template>
@@ -12,9 +17,9 @@ import HelloWorld from './components/HelloWorld.vue';
 export default {
   data() {
     return {
-      msg: 'RabbitWerks Ruulz!',
+      msg: 'Hello from the Parent Component',
       name: 'sean',
-      age: 27,
+      age: '',
     }
   },
   components: {

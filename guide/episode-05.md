@@ -44,7 +44,7 @@ The next tier of components we have are our main sections. These are usually tho
   Much like the Main Content component tree, we have a Sidebar component tree. For instance, we have an Grid Gallery component. This grid also has nested components that make up the content, and again we can make these dynamic and reusable.
 
 
-> This is just a simple, but we can see how greatly improved our code becomes using these patterns of development. Whereas we would need each and every element hardcoded in HTML then updating the content with vanilla javascript, we can see where monolithic files and code-bases come from so quickly. Vue helps to keep our code clean, simple, and dry by utilizing its many ways to modularize and optimize our apps.
+> This is just a simple example, but we can see how greatly improved our code becomes using these patterns of development. Whereas we would need each and every element hardcoded in HTML then updating the content with vanilla javascript, we can see where monolithic files and code-bases come from so quickly. Vue helps to keep our code clean, simple, and dry by utilizing its many ways to modularize and optimize our apps.
   
 ### **DECLARING/REGISTERING COMPONENTS**
 

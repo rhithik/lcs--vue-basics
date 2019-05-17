@@ -1,21 +1,34 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-
+    <input type="text" :placeholder="name">
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String,
+  computed: {
+    uppercaseMsg() {
+      return this.msg.toUpperCase();
+    }
   },
+  // props: ['msg', 'name', 'age', 'hardcoded'],
+  props: {
+    msg: {
+      type: String,
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    age: {
+      type: [String, Number],
+      required: true,
+      default: 132,
+    }
+  }
+
 };
 </script>
 
@@ -23,8 +36,11 @@ export default {
 <style scoped>
 
 .hello {
-  background-color: darkslategray;
-  color: #3ead23;
+  color: #31b810;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 </style>
