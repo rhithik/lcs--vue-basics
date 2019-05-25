@@ -1,13 +1,21 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <input type="text" :placeholder="name">
+    <h1 id="header">{{ msg }}</h1>
+    <input type="text" :placeholder="name" v-model="text">
+    <button @click="callCustomEvent">Send Data!</button>
+    <h4>Received: {{ sentText }}</h4>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      text: '',
+      sentText: '',
+    }
+  },
   computed: {
     uppercaseMsg() {
       return this.msg.toUpperCase();
@@ -27,6 +35,17 @@ export default {
       required: true,
       default: 132,
     }
+  },
+  methods: {
+    callCustomEvent() {
+      const payload = this.text;
+      this.$emit('send-data', payload)
+    }
+  },
+  mounted() {
+    this.$on('send-data', payload => {
+      this.sentText = payload;
+    })
   }
 
 };
@@ -41,6 +60,10 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.hello > * {
+  margin: 1rem 0;
 }
 
 </style>
