@@ -5,18 +5,8 @@
       :key="post.id"
       :title="post.title"
       :content="post.content"
-    >
-      <template v-slot:title>
-        <div class="post--title">
-          {{ post.title }}
-        </div>
-      </template>
-      <template v-slot:content>
-        <div class="post--content">
-          {{ post.content }}
-        </div>
-      </template>
-    </BlogPost>
+    />
+
   </div>
 </template>
 
