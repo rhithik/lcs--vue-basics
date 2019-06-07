@@ -1,8 +1,15 @@
 <template>
   <div class="post--title">
-    <slot></slot>
+    {{ title }}
   </div>
 </template>
+
+<script>
+
+export default {
+  props: ['title']
+}
+</script>
 
 <style scoped>
 .post--title {

@@ -1,8 +1,15 @@
 <template>
   <div class="post--content">
-    <slot></slot>
+    {{ content }}
   </div>
 </template>
+
+<script>
+
+export default {
+  props: ['content']
+}
+</script>
 
 <style>
 .post--content {

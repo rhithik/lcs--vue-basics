@@ -1,22 +1,17 @@
+<template>
+  <div class="blog-post--outer">
+    <PostTitle :title="title" />
+    <PostContent :content="content" />
+  </div>
+</template>
+
+
 <!-- <template>
   <div class="blog-post--outer">
     <slot name="title" />
     <slot name="content" />
   </div>
 </template> -->
-
-<template>
-  <div class="blog-post--outer">
-    <PostTitle>
-      {{ title }}
-    </PostTitle>
-    <PostContent>
-      {{ content }}
-    </PostContent>
-  </div>
-</template>
-
-
 
 <script>
 import PostTitle from './PostTitle.vue';
