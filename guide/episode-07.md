@@ -51,7 +51,55 @@ A couple a things to keep in mind about slots..
 - component must be opening / closing tag syntax, not self-closing syntax.
 - the `<slot>` tag acts as a `<template>` tag in that it doesn't get rendered
 - the `slot` / `slot-scope` api has been depricated in favor of the unified `v-slot` syntax
+- `v-slot` can only be used on a template tag
 
 Using `slots` help us to increase reusability and cut down on code quite drastically. Instead of having an entire stateful Vue Component being used, we can essentially eliminate everything but the root `template` and the inner `slot` tag.
 
+### **V-SLOT Directive**
+
 Vue likes us to keep track of our slots efficiently and we do so by making use of the **named slot** syntax at the child component level in conjunction with the new `v-slot` syntax at the parent component level. Doing so allows us to use multiple slot instances in the same component block.
+
+Using the `name` attribute in conjunction with the `v-slot` directive we can assign different template blocks to a specific named slot by passing an arguement to the directive.
+
+e.g.
+
+> `v-slot:nameOfSlotToUse`  
+`<slot name="nameOfSlotToUse" />`
+
+### Parent Component
+
+```html
+<template>
+  <div class="container--outer">
+    <BlogPost
+      v-for="post in blogData"
+      :key="post.id"
+    >
+    <template v-slot:title>
+      <div class="post--title">{{ post.title }}</div>
+    </template>
+
+    <template v-slot:content>
+      <div class="post--content">{{ post.content }}</div>
+    </template>
+
+    </BlogPost>
+  </div>
+</template>
+```
+
+### Child Component
+
+```html
+<template>
+  <div class="blog-post--outer">
+    <slot name="title" />
+    <slot name="content" />
+  </div>
+</template>
+```
+
+Much like `v-bind` and `v-on` have shorthand syntaxes, `v-slot` also has a short hand syntax. We can use an ocothorp `#` as the shorthand symbol for `v-slot`.  
+e.g.
+
+> `<template #title>My First Blog Post</template>

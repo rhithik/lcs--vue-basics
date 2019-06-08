@@ -4,12 +4,11 @@
       v-for="post in blogData"
       :key="post.id"
     >
-
-    <template #title>
+    <template v-slot:title>
       <div class="post--title">{{ post.title }}</div>
     </template>
 
-    <template #content>
+    <template v-slot:content>
       <div class="post--content">{{ post.content }}</div>
     </template>
 
