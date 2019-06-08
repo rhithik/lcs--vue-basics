@@ -1,7 +1,7 @@
 <template>
   <div class="blog-post--outer">
-    <PostTitle :title="title" />
-    <PostContent :content="content" />
+    <slot name="title" />
+    <slot name="content" />
   </div>
 </template>
 
@@ -13,21 +13,11 @@
   </div>
 </template> -->
 
-<script>
-import PostTitle from './PostTitle.vue';
-import PostContent from './PostContent.vue';
 
-export default {
-  components: {
-    PostTitle,
-    PostContent,
-  },
-  props: ['title', 'content']
-}
-</script>
 
 <style scoped>
 .blog-post--outer {
+  font-size: 1.5rem;
   background-color: rgb(44, 206, 130);
   padding: 1rem;
   display: flex;

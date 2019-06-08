@@ -3,9 +3,17 @@
     <BlogPost 
       v-for="post in blogData"
       :key="post.id"
-      :title="post.title"
-      :content="post.content"
-    />
+    >
+
+    <template #title>
+      <div class="post--title">{{ post.title }}</div>
+    </template>
+
+    <template #content>
+      <div class="post--content">{{ post.content }}</div>
+    </template>
+
+    </BlogPost>
   </div>
 </template>
 
@@ -62,7 +70,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container--outer {
   background-color: rgb(215, 230, 223);
   width: 80vw;
@@ -73,5 +81,16 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 1rem;
+}
+.post--title {
+  font-size: 1.75rem;
+  margin-bottom: .25rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid #000;
+}
+.post--content {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 </style>
