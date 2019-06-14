@@ -102,4 +102,4 @@ e.g.
 Much like `v-bind` and `v-on` have shorthand syntaxes, `v-slot` also has a short hand syntax. We can use an ocothorp `#` as the shorthand symbol for `v-slot`.  
 e.g.
 
-> `<template #title>My First Blog Post</template>
+> `<template #title>My First Blog Post</template>`
