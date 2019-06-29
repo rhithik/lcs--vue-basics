@@ -1,11 +1,11 @@
 <template>
-  <div class="container--outer">
+  <div class="container--outer" ref="container">
     <BlogPost 
       v-for="post in blogData"
       :key="post.id"
     >
     <template v-slot:title>
-      <div class="post--title">{{ post.title }}</div>
+      <div class="post--title">{{ post.title | lowercase }}</div>
     </template>
 
     <template v-slot:content>
@@ -32,6 +32,7 @@
 
 <script>
 import BlogPost from './blog-post/BlogPost.vue';
+
 
 const blogData = [
   {
@@ -65,6 +66,9 @@ export default {
     return {
       blogData
     }
+  },
+  mounted() {
+    console.log(this.$refs.container)
   }
 }
 </script>

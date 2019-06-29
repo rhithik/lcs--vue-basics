@@ -59,26 +59,20 @@ In addition to locally registered filters, we can also globally register our fil
 
 ```js
 // filters.js
-const uppercase = Vue.filter('uppercase', (value) => {
+Vue.filter('uppercase', (value) => {
   if (!value) return;
   return value.toUpperCase()
 })
-const lowercase = Vue.filter('lowercase', (value) => {
+Vue.filter('lowercase', (value) => {
   if (!value) return;
   return value.toLowerCase()
 })
 
-export default {
-  uppercase,
-  lowercase
-}
 
 // main.js
-import { uppercase, lowercase } from './filters';
+import filters from './filters';
 
 new Vue({
-  uppercase,
-  lowercase,
   render: h => h(App),
 }).$mount('#app')
 
