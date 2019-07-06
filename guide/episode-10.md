@@ -160,7 +160,7 @@ mutations: {
 
 Adding Vuex to a project is fairly straight forward. We have the option to either include Vuex from project initialization, or if we need it after the fact, we can easily install **Vuex** at any time and begin using it immediately.
 
-**[ From Project Initialization ]**  
+**[ At Project Initialization ]**  
 If we think back to episode 04 when we learned about using the `Vue CLI`, we happened across a feature option for using Vuex.
 
 Simply select the `Vuex` option when brought to the selection menu.
@@ -196,3 +196,23 @@ export default store;
 ```
 
 In addition to generating us a `store.js` file, Vue CLI also imports our store to our `main.js` file and registers it onto our main vue instance.
+
+**[ After Project Initialization ]**  
+If we are bringing in Vuex at any point after the project initialization, we need to go about it a bit differently, although quite the same. We just need to do it manually.
+
+> We can also use the Vue UI if desired, which will auto generate the appropriate files and code.
+
+To bring in Vuex manually we simply need to..
+
+- Install Vuex to our project - `npm install vuex`
+- Create a `store.js` file in the `src` folder
+- Code up the Vuex Store object
+  - import `vue`
+  - import `vuex`
+  - register `vuex` as a plugin via `Vue.use(Vuex)`
+  - code out the store
+  - export the store
+- Import our `store.js` into our `main.js` file
+- Pass our store into the main Vue instance
+
+There we go! Now we have full access to using Vuex as our primary state management.
