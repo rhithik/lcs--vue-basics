@@ -47,6 +47,7 @@ export default new VueRouter({
 ```
 
 ### Dynamic Routing
+
 With Vue Router we get access to a params object we can pass inside the route object being pushed to the router. This gives use the ability to pass data along to route changes very easily.
 
 ```js
@@ -62,6 +63,7 @@ const routes = [
 ]
 ```
 
+Inside of our components, we can `push` new routes to the `router` to be loaded. There are a variety of ways to provide the route, easiest being a hardcoded string, all the way up to an object containing the route info, params, and query data.
 
 ```js
 // literal string path
@@ -76,3 +78,40 @@ router.push({ name: 'user', params: { id: '123' } })
 // with query, resulting in /register?plan=private
 router.push({ path: 'register', query: { plan: 'private' } })
 ```
+
+---
+
+## **Router-View Tag**
+
+So now that we have a **Router** set up and we have some inital routes created, its time to employ it inside our app. To do so, we use the `<router-view>` tag.
+
+The `<router-view>` tag can be self closing or open/close. This tag is what the **Router** looks and dynamically updates the content of that tag to instead be the component we speciefy for a given route. This works quite similarly to _Dynamic Components_ because we are in fact updating components dynamically. We just have a lot more capability specific to route navigation built into the **Router**. Lets look at an example...
+
+```html
+<template>
+  <div id="app">
+    <router-view>
+  </div>
+<template>
+```
+
+This is all that is required of the `router-view` tag, and Vue will update that tag to be rendered as the component specified for the route.
+
+Now in addition to the `router-view` tag, we also get another special tag for navigating between routes. These are useful for navigation menus and other link-heavy items.
+
+The `router-link` tag gets a `to` attribute that we can specify which route we want to be loaded when we click on the router-link. We can hardcode this value or dynamically bind to it.
+
+```html
+<template>
+  <ul clas="nav-menu">
+    <router-link to="home" tag="li" />
+    <router-link :to="user" tag="li" />
+  </ul>
+<template>
+```
+
+Using the `tag` attribute, we can specify which type of HTML tag the `router-link` will be rendered as.
+
+--
+
+This is a basic use of the Vue Router and we can get much more complex and granular with our routing, if need be.
