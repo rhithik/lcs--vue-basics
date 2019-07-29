@@ -1,6 +1,6 @@
-# Vue Basics - _Episode 11_
+# Vue Basics - _Episode 12_
 
-## **Vue Router | Router-View Tag**
+## **Vue Router | Router-View + Router-Link Tag**
 
 At certain points, our apps get to the size where we need multiple pages. These 'pages' are also referred to as **views** or sometimes **screens**. Inside of our App, the only actual html page that gets served is the `index.html`. In fact, switching between `views` is as simple as swapping out components. It works quite similarly to how `dynamic components` render.
 
@@ -67,16 +67,16 @@ Inside of our components, we can `push` new routes to the `router` to be loaded.
 
 ```js
 // literal string path
-router.push('home')
+this.$router.push('home')
 
 // object based routing push
-router.push({ path: 'home' })
+this.$router.push({ path: 'home' })
 
 // named route with params to be used for dynamic routing
-router.push({ name: 'user', params: { id: '123' } })
+this.$router.push({ name: 'user', params: { id: '123' } })
 
 // with query, resulting in /register?plan=private
-router.push({ path: 'register', query: { plan: 'private' } })
+this.$router.push({ path: 'register', query: { plan: 'private' } })
 ```
 
 ---
@@ -115,3 +115,7 @@ Using the `tag` attribute, we can specify which type of HTML tag the `router-lin
 --
 
 This is a basic use of the Vue Router and we can get much more complex and granular with our routing, if need be.
+
+
+_Thank you so much for following along on the Vue.js Basics Series, every minute of time is much appriciated!_  
+_-Sean Rabbit Werks_
