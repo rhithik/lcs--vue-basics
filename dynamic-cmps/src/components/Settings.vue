@@ -6,21 +6,27 @@
 </template>
 
 <script>
+import { value, onCreated, onActivated, onDeactivated } from 'vue-function-api';
+
 export default {
-  data() {
+  props: {
+    name: String,
+    isAdmin: Boolean,
+  },
+  setup(props) {
+    const title = value('Settings');
+    const content = value('Change up the settings a bit.');
+
+    onCreated(() => console.log('The [SETTINGS] component was just created!'));
+
+    onActivated(() => console.log('The [SETTINGS] component was just activated!'));
+
+    onDeactivated(() => console.log('The [SETTINGS] component was just deactivated!'))
+
     return {
-      title: 'Settings',
-      content: 'Change up the settings a bit.'
+      title,
+      content
     }
-  },
-  created() {
-    console.log('created');
-  },
-  activated() {
-    console.log('activated');
-  },
-  deactivated() {
-    console.log('deactivated');
   }
 }
 </script>

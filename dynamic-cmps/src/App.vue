@@ -7,12 +7,19 @@
     <button @click="selectedComponent = 'Dashboard'">Dashboard</button>
     <button @click="selectedComponent = 'Settings'">Settings</button>
     <keep-alive>
-      <component :is="selectedComponent">Component Not Found</component>
+      <component 
+        :name="name"
+        :isAdmin="isAdmin"
+        :is="selectedComponent"
+        >Component Not Found
+      </component>
     </keep-alive>
   </div>
 </template>
 
 <script>
+import { value } from 'vue-function-api';
+
 import Dashboard from './components/Dashboard.vue';
 import Settings from './components/Settings.vue';
 
@@ -22,9 +29,14 @@ export default {
     Dashboard,
     Settings,
   },
-  data() {
+  setup() {
+    const selectedComponent = value('Dashboard');
+    const name = value('Sean RabbitWerks');
+    const isAdmin = value(true);
     return {
-      selectedComponent: 'Dashboard'
+      selectedComponent,
+      name,
+      isAdmin,
     }
   }
 }
