@@ -49,9 +49,9 @@
 
 > **[Understanding the Virtual DOM](https://www.youtube.com/watch?v=hzYUpNM6hHg)**
 
-- lightweight copy of the dom
+- lightweight copy of the DOM
 - portrays a DOM representation in JS Data structure
-- reduces computational expenses by only updating whats necessary
+- reduces computational expenses by only updating what's necessary
   - runs a diff algorithm against the updated virtual DOM and real DOM
   - updates the value/content of the changed element vs reloading the whole page
   - extremely effective with large scale applications
@@ -62,15 +62,15 @@
 > **[Reactivity Explained via Vue.js](https://medium.com/vue-mastery/the-best-explanation-of-javascript-reactivity-fea6112dd80d)**
 
 - an abstracted way of keeping functions and data up to date with input and changes based on the get/set pattern
-- abstracts away functions and data that would otherwise be overly-reused
+- abstracts away functions and data that would otherwise be constantly repeated
 - updates any data or DOM properties dependant on that specific variable
 
 ## Why do we need a framework?
 
 > **[Framework / Vanilla Javascript](https://www.youtube.com/watch?v=PSiXpsV5ZQc)**
 
-- optimized and battletested code
-- built-in functionality helps development tenfold
+- optimized and battle tested code
+- built-in functionality helps streamline development tenfold
 - understand and know the fundamentals of javascript
   - then learn how to use frameworks
   - understand the process behind the _magic_
