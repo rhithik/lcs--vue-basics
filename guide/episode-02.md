@@ -40,7 +40,7 @@
 - Essentially properties that get computed based on our **reactive** data properties and returns the computed value as a new data property.
   - Good for doing computations and processing data for the vue instance.
   - Computed properties also cache their returned values, which significantly reduces computational expenses.
-- Computed properties can be bound to with _Vue Directives_ just the same as properties in our Data object (we will talk about directives shortly).
+- Computed properties can be bound using _Vue Directives_ just the same as properties in our Data object (we will talk about directives shortly).
 - A computed property will only re-evaluate when Vue detects that one of the computed properties dependants has changed.
 - Why Computed?
   - Because it optimizes and improves performance and proficiency automatically and under-the-hood.
@@ -52,7 +52,7 @@
 > **[Vue.js Methods API Reference](https://vuejs.org/v2/api/#methods)**
 
 - Functions that we define on our Vue instance to be used anywhere throughout the instance.
-  - these Fn's run every time the instance has a re-render, unless otherwise specified.
+  - these functions run every time the instance has a re-render, unless otherwise specified.
   - we can set up the same logic that we have in our computed properties, but because computed properties cache their return values and normal methods don't, it's best to use computed properties whenever possible.
   - Methods can be used in our text-interpolation expressions, as long as they are invoked as such with `()`.
 
@@ -64,14 +64,14 @@
 
 - Watch functions need to be named the name of the property they are _watching_
   - i.e. `data.name` watcher would need to be called `name(){...}`
-  - watch Fn's have 2 parameters avaiable to access, the new value and the old value
+  - watch functions have 2 parameters avaiable to access, the new value and the old value
     - i.e. `name(newValue, oldValue){...}`
-    - `newValue` - the first param passed in by vue, consists of the updated value of the watched data property after some sort of value-changing event.
-    - `oldValue` - the second param passed in by vue, consists of the old value of the watched data property after some sort of value-changing event.
+    - `newValue` - the first parameter passed in by vue, consists of the updated value of the watched data property after some sort of value-changing event.
+    - `oldValue` - the second parameter passed in by vue, consists of the old value of the watched data property after some sort of value-changing event.
     - these can be named anything, `newValue oldValue` is a standard convention.
 
 - When we need to use a more generic type of watching-then-updating for our data, we can use Vue **Watchers**
-  - Watchers are best used for performing **Ascynronous** tasks such as an API Call, or loading a large sataset into the vue instance.
+  - Watchers are best used for performing **Ascynronous** tasks such as an API Call, or loading a large dataset into the vue instance.
   - Not recommended for most cases because the watch functions always run on any change or render.
   - Watchers are not optimized and are not very performant for handling computational tasks.
   - Setting up a watcher on a data property that is an object requires a bit more set up.
@@ -83,8 +83,8 @@
 
 ## **Vue Directives**
 
-- Directives are what gives Vue some of its most awesome power.
-- Vue Directives are best though of as **micro-functions** that perform certain tasks to help build out and render dynamic content much easier.
+- Directives are what gives Vue some of it's most awesome power.
+- Vue Directives are best thought of as **micro-functions** that perform certain tasks to help build out and render dynamic content much easier.
 - Vue comes with a number of baked in directives, and we can also create our own _custom directives_ as well.
 - We can bind values from our Data object using `v-bind` for instance, to any element, attribute or component/prop in the vue instance to dynamically insert the bound data value to the bound-to item.
 
@@ -95,7 +95,7 @@ _Here are a number of the most common vue directives we will always reach for wh
 ### **Content Updaters**
 
 - **`v-text`**
-  - Targets the attached-to elements `textContent` and sets its value the the value passed into the directive params
+  - Targets the attached-to elements `textContent` and sets its value to the value passed into the directive params
   - Vue by default - escapes all HTML when rendering text, for uses requiring the opposite action, we use `v-html`
 
 ```html
@@ -143,7 +143,7 @@ _Here are a number of the most common vue directives we will always reach for wh
   <span v-show="elementIsShown"> Now you See Me </span> -> will display element
   <span v-show="secondElementShown"> Now you dont! </span> -> will NOT display element
   <span v-show="5 + 5"> Or do you? </span> -> will display element
-  <span v-show="0 || zeroValue"> false, is should be false </span> -> will NOT display element
+  <span v-show="0 || zeroValue"> false, it should be false </span> -> will NOT display element
 ```
 
 ```js
@@ -166,7 +166,7 @@ _Here are a number of the most common vue directives we will always reach for wh
   - requires a condition or value passed into it as an arguement.
 
 - **`v-else-if`**
-  - as with vanillaJS conditionals, `else-if` is the optional secondary part of a conditional statement, which Vue has harnessed in its own way.
+  - as with vanilla JS conditionals, `else-if` is the optional secondary part of a conditional statement, which Vue has harnessed in its own way.
   - available in Vue 2.6.0+, provides additional conditional logic sets to potentially be met.
   - can only be used in between a `v-if` and `v-else` statement.
   - requires a condition or value passed into it as an arguement.
