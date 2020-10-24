@@ -9,3 +9,5 @@ Hey there! I'm super excited that you are interested in learning about Vue.js! T
 > **[Vue.js Basics Playlist](https://www.youtube.com/playlist?list=PLFXBGOVoMkVnkT-wv3aQyCPY3elgVQuVN)**
 
 Follow along and learn with us!
+
+Copyright &copy; 2020
