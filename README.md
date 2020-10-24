@@ -10,4 +10,4 @@ Hey there! I'm super excited that you are interested in learning about Vue.js! T
 
 Follow along and learn with us!
 
-Copyright &copy; 2020
+Copyright &copy; 2020 RabbitWerks.js
